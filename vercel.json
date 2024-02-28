@@ -1,14 +1,10 @@
 {
-    "dist":[
-        {
-            "src":"./app.js",
-            "use":"@vercel/node"
-        }
+    "version": 2,
+    "name": "clg",
+    "builds": [
+       { "src": "server.js", "use": "@vercel/node" }
     ],
-    "routes":[
-        {
-            "src":"/.",
-            "dest":"app.js"
-        }
+    "routes": [
+       { "src": "/(.*)", "dest": "/server.js" }
     ]
-}
+ }
