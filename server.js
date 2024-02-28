@@ -30,10 +30,10 @@ cloudinary.v2.config({
     api_secret: CLOUDINARY_API_SECRET
 });
 
-app.use(express.static(path.resolve(__dirname, "dist")));
+app.use(express.static(path.resolve(__dirname,"new", "dist")));
 app.get("/", (req, res) => {
     
-    res.sendFile(path.resolve(__dirname, "dist","index.html"))
+    res.sendFile(path.resolve(__dirname,"new", "dist","index.html"))
 });
 
 app.use("/api/user", userRouter);
