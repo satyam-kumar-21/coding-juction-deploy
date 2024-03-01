@@ -7,7 +7,6 @@ const cloudinary = require("cloudinary");
 const paymentRoutes = require("./routes/paymentRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const lectureRoutes = require("./routes/lectureRoutes");
-const path = require("path")
 
 require("dotenv").config();
 
@@ -30,19 +29,15 @@ cloudinary.v2.config({
     api_secret: CLOUDINARY_API_SECRET
 });
 
-app.use(express.static(path.resolve(__dirname,"new", "dist")));
-app.get("/", (req, res) => {
-    
-    res.sendFile(path.resolve(__dirname,"new", "dist","index.html"))
-});
-
 app.use("/api/user", userRouter);
 app.use("/api/course", courseRouter);
 app.use("/api/payment", paymentRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/lectures", lectureRoutes);
 
-
+app.get("/", (req,res) => {
+    res.send("Hii satyam")
+})
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
